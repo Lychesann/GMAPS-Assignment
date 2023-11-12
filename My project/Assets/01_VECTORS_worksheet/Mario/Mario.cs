@@ -27,13 +27,13 @@ public class Mario : MonoBehaviour
 
         gravityNorm = gravityNorm.normalized;
         rb.AddForce(gravityNorm * gravityStrength);
-        float angle = Vector3.SignedAngle(gravityNorm, moveDir , Vector3.right);
+        float angle = Vector3.SignedAngle(Vector3.down, moveDir , Vector3.right);
 
-        rb.MoveRotation(Quaternion.Euler(new Vector3 (0, 0, angle)));
+        rb.MoveRotation(Quaternion.Euler(0, 0, angle));
 
 
-        DebugExtension.DebugArrow(Vector3.zero, gravityDir, Color.red);
-        DebugExtension.DebugArrow(Vector3.zero, moveDir, Color.blue);
+        DebugExtension.DebugArrow(transform.position, gravityDir, Color.red);
+        DebugExtension.DebugArrow(transform.position, moveDir, Color.blue);
     }
 }
 
