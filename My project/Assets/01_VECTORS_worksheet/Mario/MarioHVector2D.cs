@@ -24,16 +24,16 @@ public class MarioHVector2D : MonoBehaviour
         moveDir.Normalize();
         moveDir *= -1;
 
-        rb.AddForce(rb.velocity);
+        rb.AddForce(moveDir.ToUnityVector2() * force);
         gravityDir.Normalize();
         
         rb.AddForce(gravityDir.ToUnityVector2() * gravityStrength);
 
-        //float angle = Vector3.SignedAngle(Vector3.up, moveDir,  Vector3.forward);
+        float angle = Vector3.SignedAngle(Vector3.right, moveDir.ToUnityVector2(), Vector3.forward);
 
-        //rb.MoveRotation(Quaternion.Euler(angle));
+        rb.MoveRotation(Quaternion.Euler(0, 0, angle)); 
 
-        //DebugExtension.DebugArrow(Vector3.zero, Mario.ToUnityVector3(), Color.red);
-        //DebugExtension.DebugArrow(Vector3.zero, Mario.ToUnityVector3(), Color.blue);
+        DebugExtension.DebugArrow(transform.position, gravityDir.ToUnityVector2(), Color.red);
+        DebugExtension.DebugArrow(transform.position, moveDir.ToUnityVector2(), Color.blue);
     }
 }
