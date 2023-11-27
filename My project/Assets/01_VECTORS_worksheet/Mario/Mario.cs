@@ -25,9 +25,9 @@ public class Mario : MonoBehaviour
 
         rb.AddForce(moveDir * force);
 
-        gravityNorm = gravityNorm.normalized;
+        gravityNorm = gravityDir.normalized;
         rb.AddForce(gravityNorm * gravityStrength);
-        float angle = Vector3.SignedAngle(Vector3.down, moveDir , Vector3.right);
+        float angle = Vector3.SignedAngle(Vector3.up, moveDir , Vector3.right);
 
         rb.MoveRotation(Quaternion.Euler(0, 0, angle));
 
