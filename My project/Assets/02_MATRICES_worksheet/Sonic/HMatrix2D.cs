@@ -121,7 +121,10 @@ public class HMatrix2D
     //            */
     //        left.entries[0, 0] * right.entries[0, 1] + left.entries[0, 1] * right.entries[1, 1] + left.entries[0, 2] * right.entries[2, 1],
 
-    //        left.entries[0, 0] * right.entries[0, 1] + left.entries[0, 1] * right.entries[1, 1] + left.entries[0, 2] * right.entries[2, 1], 
+    //        left.entries[0, 0] * right.entries[0, 2] + left.entries[0, 1] * right.entries[1, 2] + left.entries[0, 2] * right.entries[2, 2],
+
+    //        left.entries[0, 0] * right.entries[0, 3] + left.entries[0, 1] * right.entries[1, 3] + left.entries[0, 2] * right.entries[2, 3]
+
 
     //    // and so on for another 7 entries
     //    );

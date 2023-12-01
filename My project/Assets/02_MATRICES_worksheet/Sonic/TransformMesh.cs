@@ -11,10 +11,6 @@ public class TransformMesh : MonoBehaviour
     public Vector3[] vertices { get; private set; }
 
     private HMatrix2D transformMatrix = new HMatrix2D();
-    HMatrix2D toOriginMatrix = new HMatrix2D();
-    HMatrix2D fromOriginMatrix = new HMatrix2D();
-    HMatrix2D rotateMatrix = new HMatrix2D();
-
     private MeshManager meshManager;
     HVector2D pos = new HVector2D();
 
@@ -23,7 +19,7 @@ public class TransformMesh : MonoBehaviour
         meshManager = GetComponent<MeshManager>();
         pos = new HVector2D(gameObject.transform.position.x, gameObject.transform.position.y);
 
-        // Your code here
+        Rotate(45);
     }
 
 
