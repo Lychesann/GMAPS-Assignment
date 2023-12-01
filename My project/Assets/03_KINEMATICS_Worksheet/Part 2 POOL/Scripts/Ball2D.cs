@@ -7,6 +7,8 @@ public class Ball2D : MonoBehaviour
 {
     public HVector2D Position = new HVector2D(0, 0);
     public HVector2D Velocity = new HVector2D(0, 0);
+    float vX = 0f;
+    float vY = 0f;
 
     [HideInInspector]
     public float Radius;
@@ -34,20 +36,20 @@ public class Ball2D : MonoBehaviour
         return distance <= Radius + other.Radius;
     }
 
-    //public void FixedUpdate()
-    //{
-    //    UpdateBall2DPhysics(Time.deltaTime);
-    //}
+    public void FixedUpdate()
+    {
+        UpdateBall2DPhysics(Time.deltaTime);
+    }
 
-    //private void UpdateBall2DPhysics(float deltaTime)
-    //{
-    //    float displacementX = /*your code here*/;
-    //    float displacementY = /*your code here*/;
+    private void UpdateBall2DPhysics(float deltaTime)
+    {
+        float displacementX = vX* deltaTime;
+        float displacementY = vY * deltaTime;
 
-    //    Position.x += /*your code here*/;
-    //    Position.y += /*your code here*/;
+        Position.x += displacementX;
+        Position.y += displacementY;
 
-    //    transform.position = new Vector2(/*your code here*/);
-    //}
+        transform.position = new Vector2(Position.x, Position.y);
+    }
 }
 
