@@ -96,8 +96,8 @@ public class HMatrix2D
     public static HVector2D operator *(HMatrix2D left, HVector2D right)
     {
         return new HVector2D(
-            left.entries[0, 0] * right.x + left.entries[0, 1] * right.y,
-            left.entries[1, 0] * right.x + left.entries[1, 1] * right.y
+            left.entries[0, 0] * right.x + left.entries[0, 1] * right.y + left.entries[0, 2] * right.h,
+            left.entries[1, 0] * right.x + left.entries[1, 1] * right.y + left.entries[1, 2] * right.h
             );
     }
 
@@ -105,6 +105,7 @@ public class HMatrix2D
     //    //
     public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
     {
+        //Whole chuck of code is the matrix multiplication where rows * columns
         return new HMatrix2D
         (
             /* 
@@ -200,19 +201,21 @@ public class HMatrix2D
                 entries[y, x] = x == y ? 1 : 0;
     }
 
-    public void setTranslationMatrix(float transX, float transY)
+    public void setTranslationMatrix(float transX, float transY) //to set the translation matrix 
     {
         setIdentity();
-        entries[1, 0] = transX;
-        entries[0, 1] = transX + transY;
+        entries[0, 2] = transX;
+        entries[1, 2] = transY;
     }
 
-    public void setRotationMatrix(float rotDeg)
+    public void setRotationMatrix(float rotDeg) //to set the rotation matrix
     {
         setIdentity();
         float rad = rotDeg * Mathf.Rad2Deg;
-        entries[1, 0] = Mathf.Cos(rad) - Mathf.Sin(rad);
-        entries[0, 1] = Mathf.Sin(rad) + Mathf.Cos(rad);
+        entries[0, 0] = Mathf.Cos(rad);
+        entries[0, 1] = -Mathf.Sin(rad);
+        entries[1, 0] = Mathf.Sin(rad);
+        entries[1, 1] = Mathf.Cos(rad);  
     }
 
     //    public void setScalingMat(float scaleX, float scaleY)
