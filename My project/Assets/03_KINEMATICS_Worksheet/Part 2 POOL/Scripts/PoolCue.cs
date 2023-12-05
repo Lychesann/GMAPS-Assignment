@@ -21,9 +21,9 @@ public class PoolCue : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             var startLinePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Start line drawing
-            if (ball != null && ball.IsCollidingWith(transform.position.x, transform.position.y))
+            if (ball != null && ball.IsCollidingWith(startLinePos.x, startLinePos.y))
             {
-                drawnLine = lineFactory.GetLine(startLinePos, ball.transform.position, 5f, Color.blue);
+                drawnLine = lineFactory.GetLine(ball.transform.position, startLinePos, 5f, Color.blue);
                 drawnLine.EnableDrawing(true);
             }
         }
@@ -40,7 +40,7 @@ public class PoolCue : MonoBehaviour
 
         if (drawnLine != null)
         {
-            //drawnLine.end = ; // Update line end
+            drawnLine.end = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Update line end
         }
     }
 
