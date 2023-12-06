@@ -21,9 +21,9 @@ public class PoolCue : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             var startLinePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Start line drawing
-            if (ball != null && ball.IsCollidingWith(startLinePos.x, startLinePos.y))
+            if (ball != null && ball.IsCollidingWith(startLinePos.x, startLinePos.y)) //When the mouse collides with the ball it starts to draw the line 
             {
-                drawnLine = lineFactory.GetLine(ball.transform.position, startLinePos, 5f, Color.blue);
+                drawnLine = lineFactory.GetLine(ball.transform.position, startLinePos, 5f, Color.blue);  // to get the line from the position of the ball and ending it with the startlinepos
                 drawnLine.EnableDrawing(true);
             }
         }
@@ -40,7 +40,7 @@ public class PoolCue : MonoBehaviour
 
         if (drawnLine != null)
         {
-            drawnLine.end = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Update line end
+            drawnLine.end = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Update line end and make it to have a line drag to shoot the white ball
         }
     }
 

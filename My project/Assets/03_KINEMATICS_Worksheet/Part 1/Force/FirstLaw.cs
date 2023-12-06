@@ -10,7 +10,7 @@ public class FirstLaw : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(force, ForceMode.Impulse);
+        rb.AddForce(force, ForceMode.Impulse); //To add a force once
      }
 
     void FixedUpdate()
