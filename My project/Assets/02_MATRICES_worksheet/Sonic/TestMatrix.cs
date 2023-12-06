@@ -25,6 +25,6 @@ public class TestMatrix : MonoBehaviour
         HMatrix2D mat2 = new HMatrix2D(1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f);
         HMatrix2D resultMat = mat1 * mat2;
         HMatrix2D vec1 = mat1 * mat2;
-        resultMat.Print();
+        resultMat.Print(); //To get the results of the matrices
     }
 }
