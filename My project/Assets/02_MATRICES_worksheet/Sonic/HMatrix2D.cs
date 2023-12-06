@@ -15,9 +15,9 @@ public class HMatrix2D
 
     public HMatrix2D(float[,] multiArray)
     {
-        for (int y = 0; y < 3; y++)
+        for (int y = 0; y < 3; y++) //To set for each row 
         {
-            for (int x = 0; x < 3; x++)
+            for (int x = 0; x < 3; x++) //To set for each column
             {
                 entries[y, x] = multiArray[y, x];
             }
@@ -38,21 +38,27 @@ public class HMatrix2D
         // Third row
         entries[0, 2] = m02;
 
+        // fourth row
         entries[1, 0] = m10;
 
+        // fifth row
         entries[1, 1] = m11;
 
+        // sixth row
         entries[1, 2] = m12;
 
+        // seventh row
         entries[2, 0] = m20;
 
+        // eightth row
         entries[2, 1] = m21;
 
+        // ninth row
         entries[2, 2] = m22;
 
     }
 
-    public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
+    public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right) //to overload the addition function
     {
         HMatrix2D plus = new HMatrix2D();
         for (int y = 0; y < 3; y++)
@@ -65,7 +71,7 @@ public class HMatrix2D
         return plus;
     }
 
-    public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
+    public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right) //to overload the substraction function
     {
         HMatrix2D minus = new HMatrix2D();
         for (int y = 0; y < 3; y++)
@@ -78,7 +84,7 @@ public class HMatrix2D
         return minus;
     }
 
-    public static HMatrix2D operator *(HMatrix2D left, float scalar)
+    public static HMatrix2D operator *(HMatrix2D left, float scalar) //to overload the multiplication by a scalar  function
     {
         HMatrix2D times = new HMatrix2D();
         for (int y = 0; y < 3; y++)
@@ -140,7 +146,7 @@ public class HMatrix2D
 
     }
 
-    public static bool operator ==(HMatrix2D left, HMatrix2D right)
+    public static bool operator ==(HMatrix2D left, HMatrix2D right) //to check if the matrices are equal
     {
         for (int y = 0; y < 3; y++)
             for (int x = 0; x < 3; x++)
@@ -150,7 +156,7 @@ public class HMatrix2D
 
     }
 
-    public static bool operator !=(HMatrix2D left, HMatrix2D right)
+    public static bool operator !=(HMatrix2D left, HMatrix2D right) //to check if the matrices are not equal
     {
         for (int y = 0; y < 3; y++)
             for (int x = 0; x < 3; x++)
@@ -181,9 +187,9 @@ public class HMatrix2D
 
     public void setIdentity()
     {
-        //for (int y = 0; y < 3; y++)
+        //for (int y = 0; y < 3; y++) //Setting for each row
         //{
-        //    for (int x = 0; x < 3; x++)
+        //    for (int x = 0; x < 3; x++) //Setting for each column
         //    {
         //        if (x == y)
         //        {
